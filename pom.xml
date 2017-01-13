@@ -25,7 +25,7 @@
     <version>14</version>
   </parent>
   <groupId>org.apache.spark</groupId>
-  <artifactId>spark-parent_2.10</artifactId>
+  <artifactId>spark-parent_2.11</artifactId>
   <version>1.6.2</version>
   <packaging>pom</packaging>
   <name>Spark Project Parent POM</name>
@@ -150,7 +150,7 @@
     <ivy.version>2.4.0</ivy.version>
     <oro.version>2.0.8</oro.version>
     <codahale.metrics.version>3.1.2</codahale.metrics.version>
-    <avro.version>1.7.7</avro.version>
+    <avro.version>1.8.1</avro.version>
     <avro.mapred.classifier>hadoop2</avro.mapred.classifier>
     <jets3t.version>0.7.1</jets3t.version>
     <aws.kinesis.client.version>1.4.0</aws.kinesis.client.version>
@@ -164,7 +164,7 @@
     <!-- managed up from 3.2.1 for SPARK-11652 -->
     <commons.collections.version>3.2.2</commons.collections.version>
     <scala.version>2.10.5</scala.version>
-    <scala.binary.version>2.10</scala.binary.version>
+    <scala.binary.version>2.11</scala.binary.version>
     <jline.version>${scala.version}</jline.version>
     <jline.groupid>org.scala-lang</jline.groupid>
     <codehaus.jackson.version>1.9.13</codehaus.jackson.version>
@@ -1957,7 +1957,9 @@
             <args>
               <arg>-unchecked</arg>
               <arg>-deprecation</arg>
-              <arg>-feature</arg>
+	      <arg>-feature</arg>
+	      <arg>-Xmax-classfile-name</arg>
+	      <arg>128</arg>
             </args>
             <jvmArgs>
               <jvmArg>-Xms1024m</jvmArg>
@@ -2512,6 +2514,16 @@
       <id>hadoop-2.6</id>
       <properties>
         <hadoop.version>2.6.0</hadoop.version>
+        <jets3t.version>0.9.3</jets3t.version>
+        <zookeeper.version>3.4.6</zookeeper.version>
+        <curator.version>2.6.0</curator.version>
+      </properties>
+    </profile>
+   
+    <profile>
+      <id>hadoop-2.7</id>
+      <properties>
+        <hadoop.version>2.7.3</hadoop.version>
         <jets3t.version>0.9.3</jets3t.version>
         <zookeeper.version>3.4.6</zookeeper.version>
         <curator.version>2.6.0</curator.version>
